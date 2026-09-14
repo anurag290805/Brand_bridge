@@ -1,4 +1,5 @@
 import FilmLayer from './components/FilmLayer'
+import Starfield from './components/Starfield'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
 import WhatIs from './components/WhatIs'
@@ -26,6 +27,8 @@ export default function App() {
     <ToastProvider>
       {/* The persistent film world sits behind the whole page */}
       <FilmLayer />
+      {/* Drifting 3D starfield — also fixed behind content, above the glows */}
+      <Starfield />
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:z-[200] focus:top-4 focus:left-4 focus:rounded-[8px] focus:bg-[--color-cta-bg] focus:px-4 focus:py-2 focus:text-[--color-cta-text] focus:text-[14px] focus:font-medium focus:shadow-[0_6px_18px_rgba(0,0,0,0.18)]"
