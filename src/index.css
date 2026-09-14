@@ -1,0 +1,524 @@
+/* ============================================================
+   BRANDBRIDGE · DESIGN TOKENS
+   A cinematic signal + convergence system. Two genuinely
+   designed states:
+     - DARK  = near-black stage, warm amber signal, cinematic.
+     - LIGHT = warm off-white paper, deep-amber signal, editorial.
+   The palette is warm in both themes so they read as one brand.
+   Every color-carrying utility resolves through these tokens, so
+   a single [data-theme] attribute re-themes the whole site.
+
+   Key tokens:
+     --color-ink / --color-body / --color-muted  text hierarchy
+     --color-hairline*                            thin dividers
+     --color-primary*                             the amber connection signal
+     --color-cta-*                                the primary action (inverts
+                                                  per theme: paper-on-ink dark,
+                                                  ink-on-paper light) so the CTA
+                                                  always has strong contrast.
+   ============================================================ */
+
+@import "tailwindcss";
+
+/* Tailwind dark variant: driven by data-theme on <html>. Design tokens
+   themselves express the current theme; [data-theme="light"] overrides the
+   native (dark-first) values below. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ── Fonts: loaded via Google Fonts link in index.html.
+   Display: Cormorant Garamond (elegant serif display)
+   Body/UI: DM Sans (clean modern sans)
+   Mono: JetBrains Mono (technical detail)
+   All set as CSS vars so the token map can swap via theme. */
+@theme {
+  /* Surfaces - dark-native stage */
+  --color-canvas: #0a0a0b;
+  --color-canvas-soft: #0f0f11;
+  --color-surface: #141416;
+  --color-surface-soft: #1a1a1e;
+  --color-surface-elevated: #202026;
+  --color-surface-cream: #f5f1ea;
+  --color-surface-card: #17171b;
+
+  /* Dark stage - the footer and HowItWorks scene stay near-black in both
+     themes, so these tokens are identical in the light override. */
+  --color-surface-dark: #0c0c0f;
+  --color-surface-dark-elevated: #191920;
+  --color-surface-dark-soft: #141419;
+
+  /* Ink + text - dark-native */
+  --color-ink: #f5f3ef;
+  --color-body: #a9a5a0;
+  --color-body-strong: #d8d4cf;
+  --color-muted: #7a756b;
+  --color-muted-soft: #59534b;
+  --color-hairline: rgba(255, 255, 255, 0.08);
+  --color-hairline-soft: rgba(255, 255, 255, 0.05);
+  --color-hairline-strong: rgba(255, 255, 255, 0.14);
+
+  /* On-dark tokens (aliases on this palette; used only on dark stages) */
+  --color-on-dark: #f5f3ef;
+  --color-on-dark-soft: #a9a5a0;
+  /* Amber that reads correctly on a dark stage in EITHER page theme. Dark
+     stages stay dark, so their accent must not flip to the light-theme amber. */
+  --color-on-dark-primary: #d09a4e;
+
+  /* The amber connection signal - restrained, warm. Used on active signals,
+     tiny rules, selected states and subtle glow, never as the default CTA. */
+  --color-primary: #d09a4e;
+  --color-primary-strong: #a06e1e;
+  --color-primary-active: #835817;
+  --color-primary-soft: rgba(208, 154, 78, 0.12);
+  --color-primary-glow: rgba(208, 154, 78, 0.2);
+
+  /* Primary action. Dark theme: warm-paper button with near-black text (the
+     brightest object on the night stage). Contrast is well above AA in both
+     themes by construction. */
+  --color-cta-bg: #efe7d8;
+  --color-cta-bg-hover: #e2d6c0;
+  --color-cta-text: #1a140c;
+  --color-on-primary: #1a140c;
+
+  /* Feedback */
+  --color-success: #7bd88a;
+  --color-success-soft: rgba(123, 216, 138, 0.12);
+  --color-error: #ff928b;
+  --color-error-soft: rgba(255, 146, 139, 0.12);
+
+  /* Blue/Purple atmospheric glow tokens */
+  --color-accent-blue: #6366f1;
+  --color-accent-purple: #8b5cf6;
+  --color-glow-blue: rgba(99, 102, 241, 0.16);
+  --color-glow-purple: rgba(139, 92, 246, 0.12);
+
+  /* Fonts */
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+}
+
+[data-theme="light"] {
+  --color-canvas: #faf7f1;
+  --color-canvas-soft: #f2ede3;
+  --color-surface: #fffdf8;
+  --color-surface-soft: #eee7d9;
+  --color-surface-elevated: #e3dac6;
+  --color-surface-cream: #faf7f1;
+  --color-surface-card: #efe8da;
+
+  --color-ink: #1c1712;
+  --color-body: #56504a;
+  --color-body-strong: #2b251e;
+  --color-muted: #7a7266;
+  --color-muted-soft: #a8a096;
+  --color-hairline: rgba(28, 23, 18, 0.1);
+  --color-hairline-soft: rgba(28, 23, 18, 0.05);
+  --color-hairline-strong: rgba(28, 23, 18, 0.16);
+
+  --color-on-dark: #f5f3ef;
+  --color-on-dark-soft: #a9a5a0;
+  --color-on-dark-primary: #d09a4e;
+
+  --color-primary: #8c5a14;
+  --color-primary-strong: #76500f;
+  --color-primary-active: #5c3d0b;
+  --color-primary-soft: rgba(140, 90, 20, 0.1);
+  --color-primary-glow: rgba(140, 90, 20, 0.16);
+
+  --color-cta-bg: #201a13;
+  --color-cta-bg-hover: #352b1f;
+  --color-cta-text: #f7f2e8;
+  --color-on-primary: #fff9ef;
+
+  --color-success: #2f855a;
+  --color-success-soft: rgba(47, 133, 90, 0.12);
+  --color-error: #c53030;
+  --color-error-soft: rgba(197, 48, 48, 0.12);
+}
+
+:root {
+  color-scheme: dark;
+}
+[data-theme="light"] {
+  color-scheme: light;
+}
+
+html.theme-anim,
+html.theme-anim * {
+  transition:
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    color 0.35s ease,
+    fill 0.35s ease,
+    stroke 0.35s ease !important;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-body);
+  font-family: var(--font-sans);
+  margin: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+h1, h2, h3, h4 {
+  color: var(--color-ink);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  font-optical-sizing: auto;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+/* Mono/caption labels carry their own tracking (0.14–0.26em). Body copy
+   inherits normal tracking; no blanket small-text rule — explicit tracking
+   on each label is intentional and must not be overridden. */
+
+/* ── Film grain ── */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+[data-theme="light"] body::after {
+  opacity: 0.028;
+}
+
+/* ============================================================
+   ATMOSPHERE
+   ============================================================ */
+.vignette {
+  background:
+    radial-gradient(ellipse 70% 55% at 50% -12%, var(--color-primary-glow), transparent 58%),
+    radial-gradient(ellipse 55% 45% at 85% 65%, var(--color-glow-blue), transparent 62%),
+    radial-gradient(ellipse 45% 40% at 15% 75%, var(--color-glow-purple), transparent 62%),
+    radial-gradient(ellipse 45% 35% at 88% 96%, var(--color-primary-glow), transparent 62%),
+    radial-gradient(ellipse 40% 42% at 8% 70%, var(--color-primary-soft), transparent 62%);
+}
+[data-theme="light"] .vignette {
+  background:
+    radial-gradient(ellipse 70% 55% at 50% -12%, var(--color-primary-glow), transparent 60%),
+    radial-gradient(ellipse 45% 35% at 88% 96%, var(--color-primary-soft), transparent 64%);
+}
+
+.glass-panel {
+  background: rgba(20, 20, 22, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-hairline-strong);
+}
+[data-theme="light"] .glass-panel {
+  background: rgba(255, 253, 248, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-hairline-strong);
+}
+
+/* Custom Range Slider */
+input[type="range"].custom-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+}
+
+input[type="range"].custom-slider:focus {
+  outline: none;
+}
+
+input[type="range"].custom-slider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: var(--color-surface-soft);
+  border-radius: 999px;
+  border: 1px solid var(--color-hairline);
+}
+
+input[type="range"].custom-slider::-webkit-slider-thumb {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: var(--color-cta-bg);
+  border: 2px solid var(--color-primary);
+  cursor: grab;
+  -webkit-appearance: none;
+  margin-top: -8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+input[type="range"].custom-slider::-webkit-slider-thumb:active {
+  cursor: grabbing;
+  transform: scale(1.15);
+  background: var(--color-primary);
+}
+
+input[type="range"].custom-slider::-moz-range-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: var(--color-surface-soft);
+  border-radius: 999px;
+  border: 1px solid var(--color-hairline);
+}
+
+input[type="range"].custom-slider::-moz-range-thumb {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: var(--color-cta-bg);
+  border: 2px solid var(--color-primary);
+  cursor: grab;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.15s ease;
+}
+
+.hairline {
+  height: 1px;
+  background: var(--color-hairline);
+}
+
+/* ============================================================
+   SCROLL-EDGE FADE  — Apple-subtle
+   A 28px wash immediately under the raised nav that reads as
+   depth (content passing underneath), not as a gradient bar.
+   Implementation: a real element via body class (not the fragile
+   body::before), so it never collides with film grain stacking,
+   never obscures text, and never intercepts pointer events.
+   Hidden unless body.nav-raised is present; fades with a
+   no-motion-safe opacity transition.
+   ============================================================ */
+#scroll-edge-fade {
+  position: fixed;
+  top: 64px; /* nav h-16 */
+  left: 0;
+  right: 0;
+  height: 28px;
+  z-index: 39; /* below header (50) and grain (90), above content (10) */
+  pointer-events: none;
+  background: linear-gradient(to bottom, var(--color-canvas) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.28s ease;
+}
+
+body.nav-raised #scroll-edge-fade {
+  opacity: 0.92;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #scroll-edge-fade {
+    transition: none;
+  }
+}
+
+/* ============================================================
+   ANIMATION / MOTION GUARDRAILS
+   All Motion-driven interactions gate on useReducedMotion(),
+   so this is the honest fallback for any stray CSS animation.
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================================
+   REDUCED TRANSPARENCY
+   ============================================================ */
+@media (prefers-reduced-transparency: reduce) {
+  header {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background-color: var(--color-canvas) !important;
+    border-bottom: 1px solid var(--color-hairline) !important;
+  }
+  #scroll-edge-fade {
+    display: none !important;
+  }
+  .backdrop-blur,
+  .backdrop-blur-md,
+  .backdrop-blur-lg,
+  .backdrop-blur-xl,
+  .backdrop-blur-2xl {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  [data-backdrop] {
+    background-color: var(--color-canvas) !important;
+  }
+}
+
+/* ============================================================
+   HIGH CONTRAST
+   ============================================================ */
+@media (prefers-contrast: more) {
+  :root {
+    --color-hairline: rgba(255, 255, 255, 0.22);
+    --color-hairline-strong: rgba(255, 255, 255, 0.34);
+    --color-hairline-soft: rgba(255, 255, 255, 0.14);
+  }
+  [data-theme="light"] {
+    --color-hairline: rgba(28, 23, 18, 0.22);
+    --color-hairline-strong: rgba(28, 23, 18, 0.34);
+    --color-hairline-soft: rgba(28, 23, 18, 0.14);
+  }
+  :focus-visible {
+    outline-width: 3px !important;
+    outline-offset: 3px !important;
+  }
+  .bg-\[--color-cta-bg\] {
+    border: 2px solid currentColor;
+  }
+  .field {
+    border-bottom-width: 2px !important;
+  }
+  .field:focus {
+    border-bottom-width: 3px !important;
+  }
+  .hairline,
+  .border-t.border-white\/10,
+  .border-b.border-white\/10 {
+    border-color: var(--color-hairline-strong) !important;
+  }
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+@media (pointer: fine) {
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-hairline-strong);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: var(--color-muted); }
+  * { scrollbar-width: thin; scrollbar-color: var(--color-hairline-strong) transparent; }
+}
+
+/* ============================================================
+   FORMS
+   ============================================================ */
+.field-label {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+.field {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--color-hairline-strong);
+  border-radius: 0;
+  padding: 0.625rem 0 0.9rem;
+  min-height: 42px;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--color-ink);
+  transition: border-color 0.2s ease;
+}
+.field::placeholder {
+  color: var(--color-muted-soft);
+  opacity: 1;
+}
+.field:hover { border-color: var(--color-muted); }
+.field:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  border-bottom-width: 2px;
+  padding-bottom: calc(0.9rem - 1px);
+}
+.field[aria-invalid="true"] { border-color: var(--color-error); }
+select.field {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  padding-right: 2rem;
+  min-height: 44px;
+}
+.field-error {
+  margin-top: 0.4rem;
+  min-height: 1.1em;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--color-error);
+}
+
+/* ============================================================
+   FILM LAYER
+   ============================================================ */
+html,
+body {
+  overflow-x: clip;
+}
+
+.film-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.film-thread {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.film-dot {
+  position: absolute;
+  border-radius: 9999px;
+  background: var(--color-primary);
+  opacity: 0.14;
+  will-change: transform;
+}
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+.reveal { opacity: 0; }
