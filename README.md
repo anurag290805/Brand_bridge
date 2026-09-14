@@ -21,27 +21,9 @@
   <a href="https://github.com/anurag290805/Brand_bridge"><b>🐙 GitHub Repository</b></a>
 </p>
 
-<!-- Press to preview the typing effect in a JS-capable Markdown viewer (VS Code, Typora).
-     On GitHub, where scripts are stripped, the sentence above is shown statically. -->
 <p align="center">
-  <noscript><i>Bridging creators and brands through better partnerships.</i></noscript>
-  <span id="typer"><i>Bridging creators and brands through better partnerships.</i></span>
+  <i>Bridging creators and brands through better partnerships.</i>
 </p>
-
-<script>
-  /* Lightweight decorative typing effect — works in JS-capable Markdown viewers,
-     degrades gracefully to static text (e.g. on GitHub). */
-  (function () {
-    var el = document.getElementById('typer');
-    if (!el) return;
-    var text = 'Bridging creators and brands through better partnerships.';
-    var i = 0;
-    function step() {
-      if (i <= text.length) { el.innerHTML = '<i>' + text.slice(0, i) + '</i>'; i++; setTimeout(step, 32); }
-    }
-    setTimeout(step, 350);
-  })();
-</script>
 
 ---
 
@@ -310,9 +292,5 @@ Fixed layers behind everything: `FilmLayer` (atmosphere) and `Starfield` (canvas
 
 <p align="center">
   <sub>Made for creators and brands — transparent, aligned, and built for the fit.</sub><br/>
-  <sub>Brand<em>Bridge</em> · © <code id="year">BrandBridge</code> · <a href="https://brand-bridge.pages.dev">brand-bridge.pages.dev</a> · <a href="https://github.com/anurag290805/Brand_bridge">GitHub</a></sub>
+  <sub>Brand<em>Bridge</em> · © 2026 BrandBridge · <a href="https://brand-bridge.pages.dev">brand-bridge.pages.dev</a> · <a href="https://github.com/anurag290805/Brand_bridge">GitHub</a></sub>
 </p>
-
-<script>
-  (function () { var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear() + ' BrandBridge'; })();
-</script>
