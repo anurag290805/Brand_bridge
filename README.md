@@ -274,17 +274,17 @@ Fixed layers behind everything: `FilmLayer` (atmosphere) and `Starfield` (canvas
 
 ## 🗺️ Roadmap
 
-> Everything below is **not yet implemented**. This repository is a polished marketing site and currently has **no backend, accounts, or payments**.
+> The ideas below are **future functionality for BrandBridge** — none of it is live today. The current site is a public marketing experience and doesn't yet include accounts, a backend, or payments.
 
 <details>
-<summary><b>Future functionality (not currently implemented)</b></summary>
+<summary><b>On the horizon (not yet implemented)</b></summary>
 
-- **Live form submission** — the interest form currently runs in simulated “demo success” mode. Wiring a real delivery/email service into `src/services/formService.ts` (via `config.formEndpoint`) is the first production step.
-- **Production domain & config** — `src/config.ts` `siteUrl` is still a placeholder (`brandbridge.example.com`); point it at the real deployed domain.
-- **Creator & brand accounts** — login, profiles, and portfolio management.
-- **Matching engine** — algorithmic creator↔brand matching behind the scenes.
-- **Campaign management** — briefs, deliverables, timeline tracking, and delivery.
-- **Payments & settlement** — the 85/15 payout flow, once live campaigns exist.
+- **Live form submissions** — the interest form reaches BrandBridge in real time.
+- **Creator & brand accounts** — separate, tailored spaces for each side.
+- **Creator profiles and portfolios** — creators present their work and audience.
+- **Automated creator ↔ brand matching** — fit suggestions powered by audience and content alignment.
+- **Campaign management** — briefs, deliverables, timelines, and delivery all in one place.
+- **Payments & settlement** — the 85 / 15 payout flow, end to end.
 
 </details>
 
