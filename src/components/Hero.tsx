@@ -2,7 +2,6 @@ import { useMemo, useRef, type ReactNode } from 'react'
 import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react'
 import { Button } from '../lib/Button'
 import { Container } from '../lib/Container'
-import { BridgeGlyph } from '../lib/BrandMark'
 
 /**
  * HERO · THE OPENING SHOT
@@ -33,12 +32,8 @@ export default function Hero() {
   const creatorX = useTransform(scrollYProgress, [0, 1], [0, -70])
   const brandX = useTransform(scrollYProgress, [0, 1], [0, 70])
   const sideOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0])
-  const markGlow = useTransform(scrollYProgress, [0, 0.5], [1, 1.5])
-
-  const exitStyle = reduce ? {} : { y: centerY, scale: centerScale, opacity: centerOpacity }
   const creatorStyle = reduce ? {} : { x: creatorX, opacity: sideOpacity }
   const brandStyle = reduce ? {} : { x: brandX, opacity: sideOpacity }
-  const glowStyle = reduce ? {} : { scale: markGlow }
 
   return (
     <section id="top" ref={ref} className="relative overflow-hidden">
@@ -92,26 +87,7 @@ export default function Hero() {
           className="mx-auto flex w-full max-w-2xl flex-col items-center text-center lg:px-4 pt-6 lg:pt-0"
         >
           <Item variants={itemVariants}>
-            <div className="relative inline-flex items-center justify-center">
-              <motion.span
-                animate={reduce ? undefined : { opacity: [0.35, 0.7, 0.35], scale: [1, 1.25, 1] }}
-                transition={{ duration: 4, repeat: Infinity, ease: [0.4, 0, 0.2, 1] }}
-                style={glowStyle}
-                className="absolute h-20 w-20 rounded-full bg-[--color-primary-glow] blur-2xl"
-                aria-hidden="true"
-              />
-              <BridgeGlyph size={48} className="relative" label="BrandBridge mark" />
-            </div>
-          </Item>
-
-          <Item variants={itemVariants}>
-            <p className="mt-6 font-mono text-[10px] font-medium uppercase tracking-[0.26em] text-[--color-primary]">
-              The connection point
-            </p>
-          </Item>
-
-          <Item variants={itemVariants}>
-            <h1 className="mt-6 font-display text-[clamp(2.5rem,8.5vw,5.6rem)] leading-[1.03] tracking-[-0.02em] text-[--color-ink]">
+            <h1 className="font-display text-[clamp(2.5rem,8.5vw,5.6rem)] leading-[1.03] tracking-[-0.02em] text-[--color-ink]">
               The right creator.
               <br />
               <span className="italic text-[--color-primary]">The right brand.</span>

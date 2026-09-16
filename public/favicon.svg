@@ -1,6 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <image href="/logo.jpg" width="32" height="32" clip-path="url(#clip)"/>
-  <clipPath id="clip">
-    <rect width="32" height="32" rx="8"/>
-  </clipPath>
+  <defs>
+    <clipPath id="app-icon-clip">
+      <rect width="32" height="32" rx="7.5"/>
+    </clipPath>
+  </defs>
+  <image href="/logo.jpg" width="32" height="32" clip-path="url(#app-icon-clip)"/>
 </svg>
