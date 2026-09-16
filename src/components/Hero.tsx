@@ -26,9 +26,6 @@ export default function Hero() {
     offset: ['start start', 'end start'],
   })
 
-  const centerY = useTransform(scrollYProgress, [0, 1], [0, -140])
-  const centerScale = useTransform(scrollYProgress, [0, 1], [1, 0.92])
-  const centerOpacity = useTransform(scrollYProgress, [0, 1], [1, 0])
   const creatorX = useTransform(scrollYProgress, [0, 1], [0, -70])
   const brandX = useTransform(scrollYProgress, [0, 1], [0, 70])
   const sideOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0])
@@ -83,7 +80,6 @@ export default function Hero() {
             hidden: {},
             show: { transition: { staggerChildren: 0.08, delayChildren: 0.15 } },
           }}
-          style={exitStyle}
           className="mx-auto flex w-full max-w-2xl flex-col items-center text-center lg:px-4 pt-6 lg:pt-0"
         >
           <Item variants={itemVariants}>
