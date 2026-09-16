@@ -70,7 +70,7 @@ function ContactCard({
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="relative scroll-mt-16 overflow-hidden pt-24 pb-10 md:pt-32 md:pb-12">
+    <section id="contact" className="relative scroll-mt-16 overflow-hidden pt-14 pb-20 md:pt-16 md:pb-24">
       {/* A soft centered focus light behind the contact cards — otherwise the
           atmosphere comes from the persistent FilmLayer so the section stays
           continuous. */}

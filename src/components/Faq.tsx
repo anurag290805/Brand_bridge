@@ -113,7 +113,7 @@ function FaqItem({ q, a }: { q: string; a: string }) {
  */
 export default function Faq() {
   return (
-    <section id="faq" className="scroll-mt-24 py-24 md:py-32">
+    <section id="faq" className="scroll-mt-24 pt-24 pb-12 md:pt-32 md:pb-16">
       <Container>
         <div className="grid gap-12 lg:grid-cols-[1fr_1.9fr] lg:gap-20">
           <div className="lg:sticky lg:top-24 lg:h-max">
